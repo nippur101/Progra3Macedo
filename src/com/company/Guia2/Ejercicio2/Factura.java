@@ -1,6 +1,7 @@
 package com.company.Guia2.Ejercicio2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -9,20 +10,24 @@ public class Factura {
     private double montoTotal;
     private LocalDate fecha;
     private Cliente cliente;
-    private ItemVenta [] item;
-    private int [] nroItems;
+    private ArrayList< ItemVenta>item;
+    //private ArrayList<Integer> nroItems;
     private int nroDeProdutos=0;
 
     public Factura() {
+        this.idFactura = UUID.randomUUID().toString().toUpperCase().substring(0,6);
+        this.item=new ArrayList<ItemVenta>();
+        this.nroDeProdutos=nroDeProdutos;
     }
 
-    public Factura( double montoTotal, Cliente cliente) {
+
+    public Factura(double montoTotal, Cliente cliente) {
 
         this.fecha=LocalDate.now();
         this.idFactura = UUID.randomUUID().toString().toUpperCase().substring(0,6);
         this.montoTotal = montoTotal;
-        this.item=item;
-        this.nroItems=nroItems;
+        this.item=new ArrayList<ItemVenta>();
+        //this.nroItems=nroItems;
         this.cliente = cliente;
         this.nroDeProdutos=nroDeProdutos;
     }
@@ -61,22 +66,22 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    public ItemVenta[] getItem() {
+    public ArrayList<ItemVenta> getItem() {
         return item;
     }
 
-    public void setItem(ItemVenta[] item) {
+    public void setItem(ArrayList<ItemVenta> item) {
         this.item = item;
     }
-
-    public int[] getNroItems() {
+    /*
+    public ArrayList<Integer> getNroItems() {
         return nroItems;
     }
 
-    public void setNroItems(int[] nroItems) {
+    public void setNroItems(ArrayList<Integer> nroItems) {
         this.nroItems = nroItems;
     }
-
+    */
     public int getNroDeProdutos() {
         return nroDeProdutos;
     }
@@ -85,11 +90,10 @@ public class Factura {
         this.nroDeProdutos = nroDeProdutos;
     }
 
-    public void agregarCompra(ItemVenta it, int nroItems){
+    public void agregarCompra(ItemVenta it, Integer cantidad){
 
-         ItemVenta this.item[nroDeProdutos]=new ItemVenta();
-         item[nroDeProdutos]=it;
-        this.nroItems[nroDeProdutos]=nroItems;
+        it.setCantidad(cantidad);
+        item.add(it);
         this.nroDeProdutos++;
 
     }
@@ -97,13 +101,13 @@ public class Factura {
         return montoTotal-montoTotal*cliente.getDescuento()/100;
     }
 
-    public double montoItems(int pos){
-        return item[pos].getPrecioUnitario()*nroItems[pos];
+    public double montoItems(ItemVenta it,Integer cantidad){
+        return it.getPrecioUnitario()*it.getCantidad();
     }
     public double montoTotalItems(){
         double suma =0;
-        for(int i=0;i<item.length;i++){
-            suma += item[i].getPrecioUnitario()*nroItems[i];
+        for(ItemVenta i:item){
+            suma += i.getPrecioUnitario()*i.getCantidad();
         }
 
         return suma;

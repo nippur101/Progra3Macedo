@@ -1,10 +1,11 @@
 package com.company.Guia2.Ejercicio2;
 
-public class ItemVenta {
+public class ItemVenta extends Factura {
     private String idItem;
     private String nombre;
     private String descripcion;
     private double precioUnitario;
+    private int cantidad;
 
     public ItemVenta() {
     }
@@ -14,6 +15,15 @@ public class ItemVenta {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
+        this.cantidad=cantidad;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public String getIdItem() {
