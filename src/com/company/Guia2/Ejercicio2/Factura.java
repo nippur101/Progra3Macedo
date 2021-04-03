@@ -93,7 +93,7 @@ public class Factura {
     public void agregarCompra(ItemVenta it, Integer cantidad){
 
         it.setCantidad(cantidad);
-        item.add(it);
+        this.item.add(it);
         this.nroDeProdutos++;
 
     }
@@ -108,6 +108,9 @@ public class Factura {
         double suma =0;
         for(ItemVenta i:item){
             suma += i.getPrecioUnitario()*i.getCantidad();
+            System.out.println(i.getNombre());
+            System.out.println(i.getPrecioUnitario());
+            System.out.println(i.getCantidad());
         }
 
         return suma;
