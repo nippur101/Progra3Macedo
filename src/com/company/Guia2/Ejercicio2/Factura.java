@@ -1,5 +1,6 @@
 package com.company.Guia2.Ejercicio2;
 
+import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,8 +12,9 @@ public class Factura {
     private LocalDate fecha;
     private Cliente cliente;
     private ArrayList< ItemVenta>item;
-    //private ArrayList<Integer> nroItems;
+    private ArrayList<Integer> cantidadF =new ArrayList<Integer>();
     private int nroDeProdutos=0;
+    private String resumen;
 
     public Factura() {
         this.idFactura = UUID.randomUUID().toString().toUpperCase().substring(0,6);
@@ -27,9 +29,9 @@ public class Factura {
         this.idFactura = UUID.randomUUID().toString().toUpperCase().substring(0,6);
         this.montoTotal = montoTotal;
         this.item=new ArrayList<ItemVenta>();
-        //this.nroItems=nroItems;
         this.cliente = cliente;
         this.nroDeProdutos=nroDeProdutos;
+        this.resumen= resumen;
     }
 
 
@@ -73,15 +75,15 @@ public class Factura {
     public void setItem(ArrayList<ItemVenta> item) {
         this.item = item;
     }
-    /*
-    public ArrayList<Integer> getNroItems() {
-        return nroItems;
+
+    public ArrayList<Integer> getCantidadF() {
+        return cantidadF;
     }
 
-    public void setNroItems(ArrayList<Integer> nroItems) {
-        this.nroItems = nroItems;
+    public void setCantidadF(ArrayList<Integer> cantidadF) {
+        this.cantidadF = cantidadF;
     }
-    */
+
     public int getNroDeProdutos() {
         return nroDeProdutos;
     }
@@ -90,9 +92,16 @@ public class Factura {
         this.nroDeProdutos = nroDeProdutos;
     }
 
-    public void agregarCompra(ItemVenta it, Integer cantidad){
+    public String getResumen() {
+        return resumen;
+    }
 
-        it.setCantidad(cantidad);
+    public void setResumen(String resumen) {
+        this.resumen = resumen;
+    }
+
+    public void agregarCompra(ItemVenta it, Integer cantidad){
+        cantidadF.add(cantidad);
         this.item.add(it);
         this.nroDeProdutos++;
 
@@ -102,29 +111,36 @@ public class Factura {
     }
 
     public double montoItems(ItemVenta it,Integer cantidad){
-        return it.getPrecioUnitario()*it.getCantidad();
+        return it.getPrecioUnitario()*cantidad;
     }
     public double montoTotalItems(){
-        double suma =0;
-        for(ItemVenta i:item){
-            suma += i.getPrecioUnitario()*i.getCantidad();
-            System.out.println(i.getNombre());
-            System.out.println(i.getPrecioUnitario());
-            System.out.println(i.getCantidad());
-        }
 
+        double suma =0;
+        int j=0;
+        for(ItemVenta i:item){
+
+                suma += i.getPrecioUnitario() * cantidadF.get(j);
+                resumen=("| "+i.getNombre()+" | "+cantidadF.get(j)+" | "+ i.getPrecioUnitario() +" |\n");
+                System.out.println(resumen);
+                j++;
+
+        }
+        this.setMontoTotal(suma);
         return suma;
     }
 
-
+    public double montoTotalCDescuento(){
+        return this.getMontoTotal()-this.getMontoTotal()/100*this.cliente.getDescuento();
+    }
 
 
     @Override
     public String toString() {
+
         return "Factura{" +
                 "idFactura='" + idFactura + '\'' +
                 ", montoTotal=" + montoTotal +
-                ", monto c/ descuento=" + montoFinal() +
+                ", monto c/ descuento=" + this.montoTotalCDescuento() +
                 ", fecha='" + fecha + '\'' +
                 ", cliente=" + cliente +
                 '}';
