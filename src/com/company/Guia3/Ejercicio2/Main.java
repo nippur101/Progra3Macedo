@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        double suma=0;
         Estudiante e1=new Estudiante("23.342.233","Juan","Perez","juan@gmail.com","Cordoba 2134",2020,4500,"Programacion");
         Estudiante e2=new Estudiante("20.322.200","Lucas","Marinez","lucas@gmail.com","Santiago del Estero 2094",2020,5000,"Matematica");
         Estudiante e3=new Estudiante("18.382.233","Maria","Rodriguez","maria@gmail.com","jujuy 3434",2021,4600,"Fisica");
@@ -23,7 +24,13 @@ public class Main {
         personas.add(s3);
         personas.add(s4);
         for(Persona p:personas){
+            if(p instanceof Estudiante){
+                suma=((Estudiante) p).getCuotaMensual()+suma;
+
+            }
             System.out.println(p);
+
         }
+        System.out.println("Los ingresos por estudiantes son: "+suma);
     }
 }
