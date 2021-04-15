@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Factura {
+
     private String idFactura;
     private double montoTotal;
     private LocalDate fecha;

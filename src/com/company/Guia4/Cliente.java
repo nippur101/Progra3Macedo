@@ -1,17 +1,30 @@
 package com.company.Guia4;
 
+import java.util.UUID;
+
 public class Cliente {
+    private String idCliente;
     private String nombre;
     private String telefono;
     private String direccion;
 
     public Cliente() {
+        this.idCliente = UUID.randomUUID().toString().toUpperCase().substring(0,6);
     }
 
-    public Cliente(String nombre, String telefono, String direccion) {
+    public Cliente(String idCliente, String nombre, String telefono, String direccion) {
+        this.idCliente = UUID.randomUUID().toString().toUpperCase().substring(0,6);
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombre() {

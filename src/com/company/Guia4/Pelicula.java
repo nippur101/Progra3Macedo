@@ -1,6 +1,7 @@
 package com.company.Guia4;
 
 public class Pelicula {
+    private int idPelicula;
     private String genero;
     private String titulo;
     private String fechaLanzamiento;
@@ -14,7 +15,8 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula(String genero, String titulo, String fechaLanzamiento, int duarcaion, String clasificacionAudiencia, String pais, String descripcion, int nroCopias) {
+    public Pelicula(int idPelicula, String genero, String titulo, String fechaLanzamiento, int duarcaion, String clasificacionAudiencia, String pais, String descripcion, int nroCopias) {
+        this.idPelicula = idPelicula;
         this.genero = genero;
         this.titulo = titulo;
         this.fechaLanzamiento = fechaLanzamiento;
@@ -23,6 +25,14 @@ public class Pelicula {
         this.pais = pais;
         this.descripcion = descripcion;
         this.nroCopias = nroCopias;
+    }
+
+    public int getIdPelicula() {
+        return idPelicula;
+    }
+
+    public void setIdPelicula(int idPelicula) {
+        this.idPelicula = idPelicula;
     }
 
     public String getGenero() {
