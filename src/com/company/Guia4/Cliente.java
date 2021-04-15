@@ -11,8 +11,8 @@ public class Cliente {
     public Cliente() {
         this.idCliente = UUID.randomUUID().toString().toUpperCase().substring(0,6);
     }
-
-    public Cliente(String idCliente, String nombre, String telefono, String direccion) {
+//VERIFICAR SI ESTA EL CLIENTE
+    public Cliente( String nombre, String telefono, String direccion) {
         this.idCliente = UUID.randomUUID().toString().toUpperCase().substring(0,6);
         this.nombre = nombre;
         this.telefono = telefono;

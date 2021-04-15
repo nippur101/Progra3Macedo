@@ -2,7 +2,8 @@ package com.company.Guia4;
 
 import java.util.UUID;
 
-public class Factura extends Cliente{
+public class Factura {
+    private Cliente cliente;
     private String idFactura;
     private Pelicula pelicula;
     private String fechaRetiro;
@@ -12,12 +13,20 @@ public class Factura extends Cliente{
         this.idFactura = UUID.randomUUID().toString().toUpperCase().substring(0,6);
     }
 
-    public Factura(String idCliente, String nombre, String telefono, String direccion, String idFactura, Pelicula pelicula, String fechaRetiro, String fechaDevolucion) {
-        super(idCliente, nombre, telefono, direccion);
+    public Factura(Cliente cliente, String idFactura, Pelicula pelicula, String fechaRetiro, String fechaDevolucion) {
+        this.cliente = cliente;
         this.idFactura = idFactura;
         this.pelicula = pelicula;
         this.fechaRetiro = fechaRetiro;
         this.fechaDevolucion = fechaDevolucion;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getIdFactura() {
@@ -54,7 +63,7 @@ public class Factura extends Cliente{
 
     @Override
     public String toString() {
-        return "Factura{" +
+        return "Factura{" +"Cliente="+cliente.toString()+
                 "pelicula=" + pelicula +
                 ", fechaRetiro='" + fechaRetiro + '\'' +
                 ", fechaDevolucion='" + fechaDevolucion + '\'' +
