@@ -6,7 +6,7 @@ public class Pelicula {
     private String genero;
     private String titulo;
     private String fechaLanzamiento;
-    private int duarcaion;
+    private int duracion;
     private String clasificacionAudiencia;
     private String pais;
     private String descripcion;
@@ -17,12 +17,12 @@ public class Pelicula {
         this.idPelicula=count++;
     }
 
-    public Pelicula( String genero, String titulo, String fechaLanzamiento, int duarcaion, String clasificacionAudiencia, String pais, String descripcion, int nroCopias) {
+    public Pelicula( String genero, String titulo, String fechaLanzamiento, int duracion, String clasificacionAudiencia, String pais, String descripcion, int nroCopias) {
         this.idPelicula=count++;
         this.genero = genero;
         this.titulo = titulo;
         this.fechaLanzamiento = fechaLanzamiento;
-        this.duarcaion = duarcaion;
+        this.duracion = duracion;
         this.clasificacionAudiencia = clasificacionAudiencia;
         this.pais = pais;
         this.descripcion = descripcion;
@@ -36,6 +36,7 @@ public class Pelicula {
     public void setIdPelicula(int idPelicula) {
         this.idPelicula = idPelicula;
     }
+
 
     public String getGenero() {
         return genero;
@@ -61,12 +62,12 @@ public class Pelicula {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 
-    public int getDuarcaion() {
-        return duarcaion;
+    public int getDuracion() {
+        return duracion;
     }
 
-    public void setDuarcaion(int duarcaion) {
-        this.duarcaion = duarcaion;
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
     }
 
     public String getClasificacionAudiencia() {
@@ -107,7 +108,7 @@ public class Pelicula {
                 "genero='" + genero + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", fechaLanzamiento='" + fechaLanzamiento + '\'' +
-                ", duarcaion=" + duarcaion +
+                ", duarcaion=" + duracion +
                 ", clasificacionAudiencia='" + clasificacionAudiencia + '\'' +
                 ", pais='" + pais + '\'' +
                 ", descripcion='" + descripcion + '\'' +

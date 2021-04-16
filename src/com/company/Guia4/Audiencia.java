@@ -1,6 +1,6 @@
 package com.company.Guia4;
 
-public final class Audiencia {
+public final  class Audiencia {
     public static final String g="G";
     public static final String pg="PG";
     public static final String pg13="PG-13";
