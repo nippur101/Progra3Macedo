@@ -1,30 +1,26 @@
 package com.company.Guia4;
 
 public class Alquiler {
-    private String idAlquiler;
+    private static int count = 0;
+    private int idAlquiler=0;
     private Pelicula pelicula;
     private  Cliente cliente;
-    private String fprestamo;
-    private String fdevolucion;
+    private String fechaprestamo;
+    private String fechadevolucion;
 
     public Alquiler() {
+        this.idAlquiler = count++;
     }
 
-    public Alquiler(String idAlquiler, Pelicula pelicula, Cliente cliente, String fprestamo, String fdevolucion) {
-        this.idAlquiler = idAlquiler;
+    public Alquiler( Pelicula pelicula, Cliente cliente, String fechaprestamo, String fechadevolucion) {
+        this.idAlquiler = count++;
         this.pelicula = pelicula;
         this.cliente = cliente;
-        this.fprestamo = fprestamo;
-        this.fdevolucion = fdevolucion;
+        this.fechaprestamo = fechaprestamo;
+        this.fechadevolucion = fechadevolucion;
     }
 
-    public String getIdAlquiler() {
-        return idAlquiler;
-    }
 
-    public void setIdAlquiler(String idAlquiler) {
-        this.idAlquiler = idAlquiler;
-    }
 
     public Pelicula getPelicula() {
         return pelicula;
@@ -42,30 +38,40 @@ public class Alquiler {
         this.cliente = cliente;
     }
 
-    public String getFprestamo() {
-        return fprestamo;
+    public int getIdAlquiler() {
+        return idAlquiler;
     }
 
-    public void setFprestamo(String fprestamo) {
-        this.fprestamo = fprestamo;
+    public void setIdAlquiler(int idAlquiler) {
+        this.idAlquiler = idAlquiler;
     }
 
-    public String getFdevolucion() {
-        return fdevolucion;
+    public String getFechaprestamo() {
+        return fechaprestamo;
     }
 
-    public void setFdevolucion(String fdevolucion) {
-        this.fdevolucion = fdevolucion;
+    public void setFechaprestamo(String fechaprestamo) {
+        this.fechaprestamo = fechaprestamo;
     }
+
+    public String getFechadevolucion() {
+        return fechadevolucion;
+    }
+
+    public void setFechadevolucion(String fechadevolucion) {
+        this.fechadevolucion = fechadevolucion;
+    }
+
+
 
     @Override
     public String toString() {
         return "Alquiler{" +
                 "idAlquiler='" + idAlquiler + '\'' +
-                ", pelicula=" + pelicula +
-                ", cliente=" + cliente +
-                ", fprestamo='" + fprestamo + '\'' +
-                ", fdevolucion='" + fdevolucion + '\'' +
+                "| pelicula=" + pelicula.getTitulo() +
+                "| cliente=" + cliente.getNombre() +
+                "| Fecha de prestamo='" + fechaprestamo + '\'' +
+                "| Fecha de devolucion='" + fechadevolucion + '\'' +
                 '}';
     }
 }

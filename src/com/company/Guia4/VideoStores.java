@@ -34,4 +34,32 @@ public class VideoStores {
         this.alquileres = alquileres;
     }
 
+    public boolean existeCliente(String nombre){
+
+        for(Cliente c:clientes){
+            if(c.getNombre().contains(nombre)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void  mostrarAlquilerVigente(){
+        for(Alquiler a:alquileres){
+            System.out.println(a.toString());
+        }
+    }
+
+    public void consultarAlquileresCliente(Cliente client){
+        for(Alquiler a:alquileres){
+            if(a.getCliente().equals(client)){
+                System.out.println(a.toString());
+
+            }
+        }
+    }
+
+
+
+
 }

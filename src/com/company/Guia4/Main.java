@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         String nombre;
+        boolean existe =false;
 
         Pelicula p1=new Pelicula(Genero.accion, "Duro de Matar","1988",139,"R","Estados Unidos","John McClane, policía de Nueva York, llega a Los Ángeles para celebrar la Navidad, pero se ve envuelto en una lucha contra un grupo de malhechores que toman de rehén a su esposa en un rascacielos, el Nakatomi Plaza.",4);
         Pelicula p2=new Pelicula(Genero.accion, "Duro de Matar 2","1990",124,"R","Estados Unidos","Un policía de Los Ángeles pelea contra una banda de terroristas que han tomado el aeropuerto de Washington D. C.",2);
@@ -20,9 +21,19 @@ public class Main {
         Cliente c4=new Cliente("JHernan Moyano","469885","Peralta Ramos 6465");
         Cliente c5=new Cliente("Julian Mendez","4532311","Acha 223");
 
+        Alquiler a1=new Alquiler(p1,c2,"12/4/2021","17/4/2021" );
+        Alquiler a2=new Alquiler(p2,c3,"13/4/2021","18/4/2021" );
+        Alquiler a3=new Alquiler(p3,c1,"14/4/2021","19/4/2021" );
+        Alquiler a4=new Alquiler(p4,c4,"15/4/2021","20/4/2021" );
+        Alquiler a5=new Alquiler(p5,c1,"15/4/2021","20/4/2021" );
+        Alquiler a6=new Alquiler(p4,c1,"15/4/2021","20/4/2021" );
+        Alquiler a7=new Alquiler(p1,c1,"15/4/2021","20/4/2021" );
+        Alquiler a8=new Alquiler(p1,c2,"15/4/2021","20/4/2021" );
+
         VideoStores v=new VideoStores();
         ArrayList<Pelicula> pelis=new ArrayList<>();
         ArrayList<Cliente> cliens=new ArrayList<>();
+        ArrayList<Alquiler> alqui=new ArrayList<>();
         pelis.add(p1);
         pelis.add(p2);
         pelis.add(p3);
@@ -33,15 +44,28 @@ public class Main {
         cliens.add(c3);
         cliens.add(c4);
         cliens.add(c5);
+        alqui.add(a1);
+        alqui.add(a2);
+        alqui.add(a3);
+        alqui.add(a4);
+        alqui.add(a5);
+        alqui.add(a6);
+        alqui.add(a7);
+        alqui.add(a8);
+
+
+
         v.setClientes(cliens);
         v.setPeliculas(pelis);
+        v.setAlquileres(alqui);
 
 
-        Scanner entradaEscaner = new Scanner (System.in);
-        nombre = entradaEscaner.nextLine ();
-        boolean existe = v.getClientes().contains(nombre);
 
-        System.out.println(existe);
+        //nombre = "Juan Lopez";
+
+        //System.out.println(v.existeCliente(nombre));
+        //v.mostrarAlquilerVigente();
+        v.consultarAlquileresCliente(c1);
 
 
 
