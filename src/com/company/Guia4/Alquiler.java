@@ -21,6 +21,7 @@ public class Alquiler {
         this.fechaprestamo = fechaprestamo;
         this.fechadevolucion = fechadevolucion;
         this.estado=true;
+        pelicula.setNroAlquileres();
     }
 
 
