@@ -7,9 +7,11 @@ public class Alquiler {
     private  Cliente cliente;
     private String fechaprestamo;
     private String fechadevolucion;
+    private boolean estado;// True - en alquiler | false - devuelta
 
     public Alquiler() {
         this.idAlquiler = count++;
+        this.estado=true;
     }
 
     public Alquiler( Pelicula pelicula, Cliente cliente, String fechaprestamo, String fechadevolucion) {
@@ -18,6 +20,7 @@ public class Alquiler {
         this.cliente = cliente;
         this.fechaprestamo = fechaprestamo;
         this.fechadevolucion = fechadevolucion;
+        this.estado=true;
     }
 
 
@@ -62,7 +65,17 @@ public class Alquiler {
         this.fechadevolucion = fechadevolucion;
     }
 
+    public static int getCount() {
+        return count;
+    }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     @Override
     public String toString() {

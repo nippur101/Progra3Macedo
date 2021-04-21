@@ -1,6 +1,7 @@
 package com.company.Guia4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class VideoStores {
     private ArrayList<Pelicula> peliculas;
@@ -45,15 +46,23 @@ public class VideoStores {
     }
 
     public void  mostrarAlquilerVigente(){
+        int cont=0;
         for(Alquiler a:alquileres){
-            System.out.println(a.toString());
+            if(a.isEstado()==true & cont<10) {
+                System.out.println(a.toString());
+            }
         }
     }
 
     public void consultarAlquileresCliente(Cliente client){
-        for(Alquiler a:alquileres){
-            if(a.getCliente().equals(client)){
+        int cont=0;
+        ArrayList<Alquiler> copia=new ArrayList<>();
+        copia=alquileres;
+        Collections.reverse(copia);
+        for(Alquiler a:copia){
+            if(a.getCliente().equals(client) & cont<10){
                 System.out.println(a.toString());
+                cont++;
 
             }
         }
