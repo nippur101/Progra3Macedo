@@ -29,6 +29,12 @@ public class Main {
         Alquiler a6=new Alquiler(p4,c1,"15/4/2021","20/4/2021" );
         Alquiler a7=new Alquiler(p1,c1,"15/4/2021","20/4/2021" );
         Alquiler a8=new Alquiler(p1,c2,"15/4/2021","20/4/2021" );
+        Alquiler a9=new Alquiler(p4,c4,"15/4/2021","20/4/2021" );
+        Alquiler a10=new Alquiler(p5,c1,"15/4/2021","20/4/2021" );
+        Alquiler a11=new Alquiler(p4,c1,"15/4/2021","20/4/2021" );
+        Alquiler a12=new Alquiler(p4,c4,"15/4/2021","20/4/2021" );
+        Alquiler a13=new Alquiler(p5,c1,"15/4/2021","20/4/2021" );
+        Alquiler a14=new Alquiler(p4,c1,"15/4/2021","20/4/2021" );
 
         VideoStores v=new VideoStores();
         ArrayList<Pelicula> pelis=new ArrayList<>();
@@ -52,6 +58,12 @@ public class Main {
         alqui.add(a6);
         alqui.add(a7);
         alqui.add(a8);
+        alqui.add(a9);
+        alqui.add(a10);
+        alqui.add(a11);
+        alqui.add(a12);
+        alqui.add(a13);
+        alqui.add(a14);
 
 
 
@@ -65,7 +77,11 @@ public class Main {
 
         //System.out.println(v.existeCliente(nombre));
         //v.mostrarAlquilerVigente();
-        v.consultarAlquileresCliente(c1);
+       // v.consultarAlquileresCliente(c1);
+        for (Pelicula p: v.ordenarPeliculas()){
+            System.out.println(p.getTitulo());
+        }
+        //System.out.println(p1.toString());
 
 
 

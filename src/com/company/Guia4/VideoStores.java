@@ -1,7 +1,7 @@
 package com.company.Guia4;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class VideoStores {
     private ArrayList<Pelicula> peliculas;
@@ -68,7 +68,12 @@ public class VideoStores {
         }
     }
 
-
+    public List<Pelicula> ordenarPeliculas(){
+        List<Pelicula> pelisOrdenadas=peliculas;
+        return pelisOrdenadas.stream()
+                .sorted((Pelicula p1,Pelicula p2)->p2.getNroAlquileres() - p1.getNroAlquileres())
+                .collect(Collectors.toList());
+    }
 
 
 }

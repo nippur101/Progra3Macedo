@@ -2,7 +2,7 @@ package com.company.Guia4;
 
 public class Pelicula {
     private static int count = 0;
-    private static int countAlquiler=0;
+
     private int idPelicula=0;
     private String genero;
     private String titulo;
@@ -109,8 +109,8 @@ public class Pelicula {
         return nroAlquileres;
     }
 
-    public void setNroAlquileres() {
-        this.nroAlquileres = countAlquiler++;
+    public void setNroAlquileres(int nroAlquileres) {
+        this.nroAlquileres = nroAlquileres;
     }
 
     @Override
@@ -123,7 +123,7 @@ public class Pelicula {
                 ", clasificacionAudiencia='" + clasificacionAudiencia + '\'' +
                 ", pais='" + pais + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", nroCopias=" + nroCopias +
+                ", nroCopias=" + nroCopias +"Nro ALQUILERES"+nroAlquileres+
                 '}';
     }
 }
