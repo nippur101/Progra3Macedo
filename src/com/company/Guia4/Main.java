@@ -82,6 +82,12 @@ public class Main {
             System.out.println(p.getTitulo());
         }
         //System.out.println(p1.toString());
+        System.out.println("=========================================");
+        for (Pelicula p: v.ordenPorGenero(Genero.accion)){
+            System.out.println(p.getTitulo());
+        }
+        System.out.println("=========================================");
+        System.out.println(v.mostrarPelicula("Duro de Matar"));
 
 
 

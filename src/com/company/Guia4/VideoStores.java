@@ -74,6 +74,25 @@ public class VideoStores {
                 .sorted((Pelicula p1,Pelicula p2)->p2.getNroAlquileres() - p1.getNroAlquileres())
                 .collect(Collectors.toList());
     }
+    public List<Pelicula> ordenPorGenero(String genero){
+        List<Pelicula> pelisGenero=new ArrayList<>();
+        List<Pelicula> pelisOrdenadas=peliculas;
+        pelisOrdenadas=this.ordenarPeliculas();
+        for(Pelicula p:pelisOrdenadas){
+            if(genero.equals(p.getGenero())){
+                pelisGenero.add(p);
+            }
+        }
+        return pelisGenero;
+    }
+    public String mostrarPelicula(String nombre){
+        for(Pelicula p:peliculas){
+            if(p.getTitulo().equals(nombre)){
+                return p.toString();
+            }
+        }
+        return null;
+    }
 
 
 }
