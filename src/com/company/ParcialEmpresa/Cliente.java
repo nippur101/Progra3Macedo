@@ -1,6 +1,7 @@
 package com.company.ParcialEmpresa;
 
 public class Cliente {
+
     private String direccion;
     private String telefono;
     private int nroCompras=0;

@@ -26,7 +26,7 @@ public class Main {
         clientes.add(p1);
         clientes.add(p2);
         clientes.add(e1);
-        clientes.add(e1);
+        clientes.add(e2);
         Pedido ped1=new Pedido(productos,clientes);
         Pedido ped2=new Pedido(productos,clientes);
         Pedido ped3=new Pedido(productos,clientes);
@@ -37,9 +37,10 @@ public class Main {
         ped1.pedidoCompra(p1,pr2,3,7);
         ped2.pedidoCompra(p2,pr1,4,10);
         ped3.pedidoCompra(e1,pr3,2,11);
-        ped4.pedidoCompra(e1,pr4,1,3);
+        ped4.pedidoCompra(e2,pr4,1,3);
         ped5.pedidoCompra(p1,pr1,3,7);
         System.out.println("El promedio de ventas es : "+ped5.promedioVentas());
+        System.out.println("Numero de compras del cliente: "+e2.getNroCompras());
 
 
 
