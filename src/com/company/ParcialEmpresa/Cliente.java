@@ -54,9 +54,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                '}';
+        return "Cliente{" ;
     }
 }
