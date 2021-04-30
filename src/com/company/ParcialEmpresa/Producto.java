@@ -37,6 +37,15 @@ public class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+    public boolean ventaProducto(int vendidos){
+
+        if(vendidos<=numStock) {
+            numStock = numStock - vendidos;
+            return true;
+        }
+
+        return false;
+    }
 
     @Override
     public String toString() {

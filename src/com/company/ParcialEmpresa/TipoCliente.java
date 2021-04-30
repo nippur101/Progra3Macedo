@@ -1,0 +1,6 @@
+package com.company.ParcialEmpresa;
+
+public class TipoCliente {
+    public static final String PARTICULAR="Particular";
+    public static final String EMPRESA="Empresa";
+}

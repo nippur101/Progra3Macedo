@@ -1,51 +1,54 @@
 package com.company.ParcialEmpresa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pedido {
-    private Cliente cliente;
-    private Producto producto;
-    private double kms;
+
+    private List<Producto> productos=new ArrayList<>();
+    private List<Cliente> clientes=new ArrayList<>();
+
 
 
     public Pedido() {
     }
 
-    public Pedido(Cliente cliente, Producto producto, double kms) {
-        this.cliente = cliente;
-        this.producto = producto;
-        this.kms = kms;
+    public Pedido(List<Producto> productos, List<Cliente> clientes) {
+        this.productos = productos;
+        this.clientes = clientes;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public List<Producto> getProductos() {
+        return productos;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public List<Cliente> getClientes() {
+        return clientes;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
-    public double getKms() {
-        return kms;
+    public double pedidoCompra(Cliente cliente, Producto p, int cantidad, double kms){
+        double costoTotal=0;
+        if(p.getNumStock()>cantidad){
+            cliente.agregarCompra();//suma contador de ventas
+            p.ventaProducto(cantidad);//resta 1 a numero producto
+            if(cliente.getTipoCliente().equals(TipoCliente.PARTICULAR)){
+                costoTotal=p.getPrecio()*cantidad+kms*100;
+            }else{
+                costoTotal=p.getPrecio()*cantidad*0.15+kms*100;
+            }
+
+        }
+        return costoTotal;
+
     }
 
-    public void setKms(double kms) {
-        this.kms = kms;
-    }
 
-
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "cliente=" + cliente +
-                ", producto=" + producto +
-                ", kms=" + kms +
-                '}';
-    }
 }

@@ -3,11 +3,13 @@ package com.company.ParcialEmpresa;
 public class Empresa extends Cliente{
     private String Fantasia;
 
+
     public Empresa() {
+
     }
 
-    public Empresa(String direccion, String telefono, String fantasia) {
-        super(direccion, telefono);
+    public Empresa(String fantasia, String telefono,String direccion, String tipoCliente) {
+        super(direccion, telefono, tipoCliente);
         Fantasia = fantasia;
     }
 
