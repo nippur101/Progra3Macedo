@@ -29,7 +29,7 @@ public class Main {
         }*/
 
         for(Plantel p:plantel){
-            if(p.getTipoMiembro()==TipoMiembro.JUGADOR){
+            if(p instanceof Jugador){
                 System.out.println(p);
             }
         }
