@@ -20,6 +20,8 @@ public class Main {
         Refrigerado r3=new Refrigerado("14042027","14/04/2027",29,TipoProducto.REFRIGERADOS,"212521-6");
 
        Administracion a=new Administracion();
+       // INGRESO DE TODOS LOS PRODUCTOS
+        System.out.println("\n===================INGRESO DE PRODUCTOS========================\n");
        a.agregarProducto(c1);
         a.agregarProducto(c2);
         a.agregarProducto(c3);
@@ -29,7 +31,18 @@ public class Main {
         a.agregarProducto(r1);
         a.agregarProducto(r2);
         a.agregarProducto(r3);
+
+        //REPITO INGRESO PARA CONFIRMAR QUE NO SE PUEDE REPETIR
+        System.out.println("\n===================REPITO UN INGRESO========================\n");
         a.agregarProducto(c2);
-        System.out.println(a.contarProductosTipo(TipoProducto.CONGELADO));
+        System.out.println("\n===================CUENTO PRODUCTOS CONGELADOS========================\n");
+
+         System.out.println(a.contarProductosTipo(TipoProducto.CONGELADO));
+        System.out.println("\n===================MUESTRO UN PPRODUCTO========================\n");
+        System.out.println(f1);
+        System.out.println("\n===================MUESTRO PRODUCTOS REFRIGERADOS========================\n");
+        a.mostrarProductosTipo(TipoProducto.REFRIGERADOS);
+        System.out.println("\n===================MUESTRO TODOS LOS PRODUCTOS========================\n");
+        a.mostrarTodosProductos();
     }
 }

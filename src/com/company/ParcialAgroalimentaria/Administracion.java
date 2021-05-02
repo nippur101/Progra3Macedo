@@ -46,7 +46,20 @@ public class Administracion {
         }
         return cont;
     }
+    public void mostrarProductosTipo(String tipoProducto){
+        for (Producto p:productos){
+            if(tipoProducto.equals(p.getTipoProducto()) ){
+                System.out.println(p);
 
+            }
+        }
+
+    }
+    public void mostrarTodosProductos(){
+        for (Producto p:productos){
+            System.out.println(p);
+        }
+    }
 
 
     @Override

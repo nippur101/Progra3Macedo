@@ -50,10 +50,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
-                "codigoInterno='" + codigoInterno + '\'' +
+        return  "codigoInterno='" + codigoInterno + '\'' +
                 ", fechaCaducidad='" + fechaCaducidad + '\'' +
-                ", nroLote=" + nroLote +
-                '}';
+                ", nroLote=" + nroLote +" ";
     }
 }

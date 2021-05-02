@@ -23,7 +23,7 @@ public class Refrigerado extends Producto{
 
     @Override
     public String toString() {
-        return "Refrigerado{" +
+        return "Refrigerado{" +super.toString()+
                 "codigoOrganismSupervisor='" + codigoOrganismSupervisor + '\'' +
                 '}';
     }

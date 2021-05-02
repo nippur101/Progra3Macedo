@@ -21,7 +21,7 @@ public class Congelado extends Producto{
 
     @Override
     public String toString() {
-        return "Congelado{" +
+        return "Congelado{" +super.toString()+
                 "tempCongelacion=" + tempCongelacion +
                 '}';
     }
