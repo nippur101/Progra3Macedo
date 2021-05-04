@@ -5,26 +5,20 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private int nroCompras=0;
-    private String tipoCliente;
+
 
     public Cliente() {
 
     }
 
-    public Cliente(String direccion, String telefono,String tipoCliente) {
+    public Cliente(String direccion, String telefono) {
         this.direccion = direccion;
         this.telefono = telefono;
-        this.tipoCliente=tipoCliente;
+
         this.nroCompras=nroCompras;
     }
 
-    public String getTipoCliente() {
-        return tipoCliente;
-    }
 
-    public void setTipoCliente(String tipoCliente) {
-        this.tipoCliente = tipoCliente;
-    }
 
     public int getNroCompras() {
         return nroCompras;
