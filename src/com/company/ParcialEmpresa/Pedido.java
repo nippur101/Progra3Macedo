@@ -45,16 +45,16 @@ public class Pedido {
         if(p.getNumStock()>cantidad){
             cliente.agregarCompra();//suma contador de ventas
             p.ventaProducto(cantidad);//resta 1 a numero producto
-            if(cliente.getTipoCliente().equals(TipoCliente.PARTICULAR)){
+            if(cliente instanceof Particular){
                 costoTotal=p.getPrecio()*cantidad+kms*100;
                 countIngresos=countIngresos+costoTotal;
-
-                System.out.println("Cliente: "+cliente.toString()+"\nProducto: "+p.toString()+"\nCantidad: "+cantidad+"\nPRECIO TOTAL: "+costoTotal+"\nNro de Pedidos: "+nroPedidos);
+                impresionPedido(cliente,p,cantidad,costoTotal);
+               
             }else{
                 costoTotal=p.getPrecio()*cantidad*0.85+kms*100;
                 countIngresos=countIngresos+costoTotal;
+                impresionPedido(cliente,p,cantidad,costoTotal);
 
-                System.out.println("Cliente: "+cliente.toString()+"\nProducto: "+p.toString()+"\nCantidad: "+cantidad+"\nPRECIO TOTAL: "+costoTotal+"\nNro de Pedidos: "+nroPedidos);
 
             }
 
@@ -67,4 +67,7 @@ public class Pedido {
     }
 
 
+    public void impresionPedido(Cliente cliente,Producto producto,int cantidad,double costoTotal){
+        System.out.println("Cliente: "+cliente.toString()+"\nProducto: "+producto.toString()+"\nCantidad: "+cantidad+"\nPRECIO TOTAL: "+costoTotal+"\nNro de Pedidos: "+nroPedidos);
+    }
 }

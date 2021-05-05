@@ -8,8 +8,8 @@ public class Empresa extends Cliente{
 
     }
 
-    public Empresa(String fantasia, String telefono,String direccion, String tipoCliente) {
-        super(direccion, telefono, tipoCliente);
+    public Empresa(String fantasia, String telefono,String direccion) {
+        super(direccion, telefono);
         Fantasia = fantasia;
     }
 

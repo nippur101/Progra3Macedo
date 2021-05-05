@@ -9,8 +9,8 @@ public class Particular extends Cliente{
 
     }
 
-    public Particular(String nombre,String telefono,String direccion, String tipoCliente ) {
-        super(direccion, telefono, tipoCliente);
+    public Particular(String nombre,String telefono,String direccion ) {
+        super(direccion, telefono);
         this.nombre = nombre;
     }
 
